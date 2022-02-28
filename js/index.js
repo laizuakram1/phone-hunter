@@ -16,13 +16,14 @@ const displayPhones = (data) => {
     for(const phone of data){
         console.log(phone.brand);
         const div = document.createElement('div');
+        div.classList.add('col')
         div.innerHTML = `
-            <div class="card" style="width: 18rem;">
-                <img src="${phone.image}" class="card-img-top" alt="...">
+            <div class="card my-4 border-0" style="width: 18rem;">
+                <img height="450px" src="${phone.image}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">${phone.phone_name}</h5>
                   <p class="card-text">${phone.brand}</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <button>More Details</button>
                 </div>
               </div>
         `

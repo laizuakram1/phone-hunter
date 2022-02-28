@@ -1,0 +1,8 @@
+#display-phones{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  
+}
+body{
+    background-color: grey;
+}
