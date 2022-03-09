@@ -5,13 +5,8 @@ const userMessage = document.getElementById('message');
 const searchButton = () => {
     const inputField = document.getElementById('input-field');
     const inputText = loadPhones(inputField.value);
-    if(inputField.value = ' '){
-        userMessage.innerText = `*please type a phone name`;
-        
-        
-     }
-   
     
+
     // clear data
     inputField.value = ' ';
 }
@@ -19,10 +14,16 @@ const searchButton = () => {
 
 
 const loadPhones = (phone) => {
-    fetch(`https://openapi.programming-hero.com/api/phones?search=${phone}`)
+    const inputField = document.getElementById('input-field');
+    if(inputField.value == ''){
+        userMessage.innerText = '*please type phone name';
+    }else{
+        fetch(`https://openapi.programming-hero.com/api/phones?search=${phone}`)
     .then(res => res.json())
     .then(data => displayPhones(data.data))
 }
+    }
+    
 
 const clickButton = (para) => {
     fetch(`https://openapi.programming-hero.com/api/phone/${para}`)
