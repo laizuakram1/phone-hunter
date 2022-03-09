@@ -22,7 +22,7 @@ const loadPhones = (phone) => {
     }else{
         fetch(`https://openapi.programming-hero.com/api/phones?search=${phone}`)
     .then(res => res.json())
-    .then(data => displayPhones(data.data))
+    .then(data => displayPhones(data.data.slice(0, 20)))
 }
     }
     
@@ -33,7 +33,7 @@ const displayPhones = (data) => {
         const div = document.createElement('div');
         div.classList.add('col')
         div.innerHTML = `
-            <div class=" card my-4 border-0 shadow-lg p-3 mb-5 bg-body rounded" style="width: 16rem;">
+            <div class="col-md-6 card my-4 border-0 shadow-lg p-3 mb-5 bg-body rounded" style="width: 16rem;">
                 <img height="370px" src="${phone.image}" class="card-img-top" alt="...">
                   <h5 class="card-title">${phone.phone_name}</h5>
                   <p class="card-text">${phone.brand}</p>
